@@ -1,0 +1,10 @@
+To build the docker image:
+
+  docker build -t stevef00:yum-mirror .
+
+To serve the yum mirror:
+
+  docker run --rm --name yum-mirror \
+    --mount type=volume,source=yum-mirror,destination=/usr/share/nginx/html,ro \
+    -d -p 8080:80 yum-mirror
+
